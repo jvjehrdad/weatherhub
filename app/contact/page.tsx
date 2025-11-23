@@ -52,7 +52,7 @@ export default function ContactPage() {
             Contact Us
           </h1>
           <p className="text-gray-600 dark:text-gray-400">
-            Fill out the form below and we'll get back to you as soon as possible.
+            Fill out the form below and we&apos;ll get back to you as soon as possible.
           </p>
         </div>
 
@@ -102,7 +102,7 @@ export default function ContactPage() {
                 <textarea
                   id="message"
                   rows={5}
-                  placeholder="Tell us what you're thinking..."
+                  placeholder="Tell us what you&apos;re thinking..."
                   className={`
                     w-full px-4 py-2 rounded-lg border
                     bg-white dark:bg-gray-800
@@ -128,7 +128,7 @@ export default function ContactPage() {
               {submitStatus === 'success' && (
                 <div className="p-4 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
                   <p className="text-green-800 dark:text-green-200 font-medium">
-                    ✓ Message sent successfully! We'll be in touch soon.
+                    ✓ Message sent successfully! We&apos;ll be in touch soon.
                   </p>
                 </div>
               )}
@@ -168,4 +168,5 @@ export default function ContactPage() {
     </div>
   );
 }
+
 
