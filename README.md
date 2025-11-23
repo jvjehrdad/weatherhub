@@ -20,7 +20,7 @@ A modern weather application built with Next.js 14, featuring real-time weather 
 - **Form Management**: React Hook Form
 - **Validation**: Zod
 - **Theme Management**: next-themes
-- **API**: OpenWeatherMap API
+- **API**: Open-Meteo (free, no API key required)
 
 ## Project Structure 📁
 
@@ -55,7 +55,6 @@ weatherhub/
 
 - Node.js 18+ or Bun
 - pnpm (recommended) or npm/yarn
-- OpenWeatherMap API key (free)
 
 ### Installation
 
@@ -74,19 +73,12 @@ npm install
 yarn install
 ```
 
-3. Set up environment variables:
+3. (Optional) Copy the example environment file:
 ```bash
 cp .env.local.example .env.local
 ```
 
-4. Add your OpenWeatherMap API key to `.env.local`:
-```env
-NEXT_PUBLIC_OPENWEATHER_API_KEY=your_api_key_here
-```
-
-Get your free API key from [OpenWeatherMap](https://openweathermap.org/api)
-
-5. Run the development server:
+4. Run the development server:
 ```bash
 pnpm dev
 # or
@@ -95,7 +87,7 @@ npm run dev
 yarn dev
 ```
 
-6. Open [http://localhost:3000](http://localhost:3000) in your browser
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## Available Scripts 📜
 
@@ -133,7 +125,7 @@ The project follows Conventional Commits format:
 f2aea16 feat(ui): add button, card and input components
 e45402f feat(theme): add dark mode toggle with persistence
 4d0e098 feat(form): add contact form with validation
-244e0cb feat(dashboard): integrate openweathermap api
+244e0cb feat(dashboard): integrate open-meteo api
 410fa8a feat(seo): add metadata and open graph tags
 073cb99 feat(nav): add navigation component and homepage
 ```
@@ -144,8 +136,7 @@ e45402f feat(theme): add dark mode toggle with persistence
 
 1. Push your code to GitHub
 2. Import project in [Vercel](https://vercel.com)
-3. Add `NEXT_PUBLIC_OPENWEATHER_API_KEY` environment variable
-4. Deploy!
+3. Deploy!
 
 ### Other Platforms
 
@@ -162,9 +153,7 @@ Make sure to:
 
 ## Environment Variables 🔐
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `NEXT_PUBLIC_OPENWEATHER_API_KEY` | OpenWeatherMap API key | Yes |
+No environment variables are required for the Open-Meteo weather data.
 
 ## Features Details 📋
 
@@ -175,7 +164,7 @@ Make sure to:
 - Smooth transitions between themes
 
 ### Weather Dashboard
-- Fetches data from OpenWeatherMap API
+- Fetches data from Open-Meteo API (no API key needed)
 - Shows weather for 6 major cities
 - Updates every 5 minutes (ISR)
 - Displays: temperature, humidity, wind speed, pressure
@@ -212,7 +201,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Acknowledgments 🙏
 
-- Weather data provided by [OpenWeatherMap](https://openweathermap.org)
+- Weather data provided by [Open-Meteo](https://open-meteo.com)
 - Icons from Heroicons
 - Built with [Next.js](https://nextjs.org)
 - Styled with [Tailwind CSS](https://tailwindcss.com)

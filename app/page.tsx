@@ -149,7 +149,7 @@ export default function Home() {
             Built with ❤️ using Next.js 14, TypeScript, and Tailwind CSS
           </p>
           <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
-            Weather data provided by OpenWeatherMap API
+            Weather data provided by Open-Meteo
           </p>
         </div>
       </footer>

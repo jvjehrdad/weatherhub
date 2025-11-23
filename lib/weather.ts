@@ -11,29 +11,23 @@ export interface WeatherData {
 }
 
 export interface WeatherResponse {
-  name: string;
-  sys: {
-    country: string;
-  };
-  main: {
-    temp: number;
-    feels_like: number;
-    humidity: number;
-    pressure: number;
-  };
-  weather: Array<{
-    description: string;
-    icon: string;
-  }>;
-  wind: {
-    speed: number;
+  current: {
+    temperature_2m: number;
+    apparent_temperature: number;
+    relative_humidity_2m: number;
+    weather_code: number;
+    wind_speed_10m: number;
+    surface_pressure: number;
   };
 }
 
 // City coordinates for Open-Meteo API (free, no API key needed)
-const CITY_COORDS: Record<string, { lat: number; lon: number; country: string }> = {
+const CITY_COORDS: Record<
+  string,
+  { lat: number; lon: number; country: string }
+> = {
   London: { lat: 51.5074, lon: -0.1278, country: 'GB' },
-  'New York': { lat: 40.7128, lon: -74.0060, country: 'US' },
+  'New York': { lat: 40.7128, lon: -74.006, country: 'US' },
   Tokyo: { lat: 35.6762, lon: 139.6503, country: 'JP' },
   Paris: { lat: 48.8566, lon: 2.3522, country: 'FR' },
   Sydney: { lat: -33.8688, lon: 151.2093, country: 'AU' },
@@ -41,7 +35,10 @@ const CITY_COORDS: Record<string, { lat: number; lon: number; country: string }>
 };
 
 // Weather code to description mapping
-const WEATHER_DESCRIPTIONS: Record<number, { description: string; icon: string }> = {
+const WEATHER_DESCRIPTIONS: Record<
+  number,
+  { description: string; icon: string }
+> = {
   0: { description: 'clear sky', icon: '01d' },
   1: { description: 'mainly clear', icon: '02d' },
   2: { description: 'partly cloudy', icon: '03d' },
@@ -70,28 +67,29 @@ const WEATHER_DESCRIPTIONS: Record<number, { description: string; icon: string }
 
 export async function getWeatherByCity(city: string): Promise<WeatherData> {
   const coords = CITY_COORDS[city];
-  
+
   if (!coords) {
     throw new Error(`City ${city} not supported`);
   }
 
-  // Open-Meteo API - Free, no API key required!
+  // Open-Meteo API - Free, no API key required
   const response = await fetch(
     `https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m,surface_pressure`,
     {
       next: { revalidate: 300 }, // Revalidate every 5 minutes
-    }
+    },
   );
 
   if (!response.ok) {
     throw new Error(`Failed to fetch weather for ${city}`);
   }
 
-  const data = await response.json();
+  const data = (await response.json()) as WeatherResponse;
   const current = data.current;
-  
+
   const weatherCode = current.weather_code || 0;
-  const weatherInfo = WEATHER_DESCRIPTIONS[weatherCode] || WEATHER_DESCRIPTIONS[0];
+  const weatherInfo =
+    WEATHER_DESCRIPTIONS[weatherCode] || WEATHER_DESCRIPTIONS[0];
 
   return {
     city,

@@ -96,7 +96,7 @@ export default function DashboardPage() {
 
         <div className="mt-8 text-center">
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            Data updates every 5 minutes • Powered by OpenWeatherMap API
+            Data updates every 5 minutes - Powered by Open-Meteo
           </p>
         </div>
       </div>
