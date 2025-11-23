@@ -38,7 +38,7 @@ export async function getWeatherByCity(city: string): Promise<WeatherData> {
     `${BASE_URL}/weather?q=${city}&units=metric&appid=${API_KEY}`,
     {
       next: { revalidate: 300 }, // Revalidate every 5 minutes
-    }
+    },
   );
 
   if (!response.ok) {
@@ -63,4 +63,3 @@ export async function getWeatherByCity(city: string): Promise<WeatherData> {
 export function getWeatherIconUrl(icon: string): string {
   return `https://openweathermap.org/img/wn/${icon}@2x.png`;
 }
-
