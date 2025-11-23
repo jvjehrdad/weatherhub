@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://weather-hub.example.com',
+    url: 'https://weatherhub.example.com',
     siteName: 'Weather Hub',
     title: 'Weather Hub - Modern Weather Application',
     description: 'A modern weather application built with Next.js 14, featuring real-time weather updates and dark mode support.',

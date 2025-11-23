@@ -1,4 +1,4 @@
-# Weather Hub 🌤️
+# WeatherHub 🌤️
 
 A modern weather application built with Next.js 14, featuring real-time weather updates, dark mode support, and a beautiful responsive UI.
 
@@ -25,7 +25,7 @@ A modern weather application built with Next.js 14, featuring real-time weather 
 ## Project Structure 📁
 
 ```
-weather-hub/
+weatherhub/
 ├── app/
 │   ├── layout.tsx           # Root layout with theme provider
 │   ├── page.tsx             # Homepage

@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/api/',
     },
-    sitemap: 'https://weather-hub.example.com/sitemap.xml',
+    sitemap: 'https://weatherhub.example.com/sitemap.xml',
   };
 }
 
